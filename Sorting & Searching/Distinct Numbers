@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#define ll long long int
+#define ff first
+#define ss second
+ll mod=998244353;
+#define Faster ios_base::sync_with_stdio(false);cin.tie(NULL);
+using namespace std;
+int gcd(int a,int b)
+{
+    if(b==0) return a;
+    return gcd(b,(a%b));
+}
+int main()
+{
+    //Faster;
+        int n,x;
+        cin>>n;
+        int aray[n+5];
+        vector<int>v;
+        for(int i=0; i<n; i++)
+        {
+            cin>>x;
+           v.push_back(x);
+        }
+       int cnt=0;
+       sort(v.begin(),v.end());
+       for(int i=0;i<n;i++)
+       {
+           if(v[i]!=v[i+1]) cnt++;
+       }
+       cout<<cnt;
+       cout<<endl;
+    return 0;
+}
+ 
+//joyed
