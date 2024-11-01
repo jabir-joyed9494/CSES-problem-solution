@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+#define ll long long int
+#define ff first
+#define ss second
+ll mod=998244353;
+#define PI  3.1416
+#define Faster ios_base::sync_with_stdio(false);cin.tie(NULL);
+using namespace std;
+int dx[]= {0,0,1,-1};
+int dy[]= {1,-1,0,0};
+ll gcd(ll a,ll b)
+{
+    if(b==0) return a;
+    return gcd(b,(a%b));
+}
+int checkprime(ll x)
+{
+    if(x%2==0) return 2;
+    else
+    {
+        for(int i=3; i*i<=x; i+=2)
+        {
+            if(x%i==0)
+                return i;
+ 
+        }
+    }
+    return 0;
+}
+ 
+ 
+ 
+int main()
+{
+    Faster;
+    int n,m,k;  cin>>n>>m>>k;
+    int ar1[n+1]; int ar2[m+1];
+    for(int i=0; i<n; i++) cin>>ar1[i];
+    for(int i=0; i<m; i++) cin>>ar2[i];
+    sort(ar1,ar1+n); sort(ar2,ar2+m);
+    int tp1=0; int tp2=0; int ans=0;
+    while(tp1<n && tp2<m){
+        //cout<<"yes\n";
+        if(ar2[tp2]-k <= ar1[tp1] && ar2[tp2]+k >= ar1[tp1]){ans++; tp1++; tp2++;}
+        else{
+            if(ar1[tp1]>ar2[tp2]) tp2++;
+            else tp1++;
+        }
+    }
+ 
+    cout<<ans<<"\n";
+ 
+ 
+ 
+    return 0;
+}
